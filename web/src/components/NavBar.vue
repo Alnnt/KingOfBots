@@ -35,7 +35,7 @@
 
 <script>
 import { useRoute } from 'vue-router'
-import { computed } from "vue";
+import { computed } from "vue"
 
 export default {
   setup() {
@@ -44,7 +44,7 @@ export default {
     return {
       route_name
     }
-  },
+  }
 }
 </script>
 
