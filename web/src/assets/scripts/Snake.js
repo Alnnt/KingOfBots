@@ -124,7 +124,7 @@ export class Snake extends AcGameObject {
             ctx.fill();
         }
 
-        for (let i = 1; i < this.cells.length; ++i) {
+        for (let i = 1; i < this.cells.length; ++i) {   // 渲染蛇身体连接矩形
             const a = this.cells[i - 1];
             const b = this.cells[i];
             if (Math.abs(a.x - b.x) < this.eps && Math.abs(a.y - b.y) < this.eps)
