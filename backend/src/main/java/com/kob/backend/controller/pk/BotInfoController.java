@@ -7,10 +7,10 @@ import java.util.Map;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("/pk/")
+@RequestMapping("/pk")
 public class BotInfoController {
-    @RequestMapping("getbotinfo/")
-    public Map<String, String> getBotInfo(){
+    @RequestMapping("/getbotinfo")
+    public Map<String, String> getBotInfo() {
         Map<String, String> obj = new HashMap<>();
         obj.put("name","Anrylnro");
         obj.put("rating","1500");
