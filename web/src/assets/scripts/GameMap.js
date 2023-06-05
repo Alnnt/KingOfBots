@@ -7,12 +7,14 @@ export class GameMap extends AcGameObject {
      * 构造GameMap
      * @param ctx     canvas 2d渲染上下文(CanvasRenderingContext2D)
      * @param parent  canvas父元素容器
+     * @param store   包含gamemap属性的store(vuex)对象
      */
-    constructor(ctx, parent) {
+    constructor(ctx, parent, store) {
         super();
 
         this.ctx = ctx;
         this.parent = parent;
+        this.store = store;
         this.L = 0;            //格子宽高
 
         this.rows = 13;
@@ -27,60 +29,8 @@ export class GameMap extends AcGameObject {
         ];
     }
 
-    /**
-     * 两点是否连通
-     * @param g    地图网格
-     * @param sx   起点X
-     * @param sy   起点Y
-     * @param tx   终点X
-     * @param ty   终点Y
-     * @returns {boolean} true - 连通   false - 不连通
-     */
-    check_connectivity(g, sx, sy, tx, ty) {
-        if(sx === tx && sy === ty) return true;
-        g[sx][sy] = true;
-
-        const dx = [-1, 0, 1, 0], dy = [0, 1, 0, -1];
-        for(let i = 0; i < 4; ++i) {
-            let x = sx + dx[i], y = sy + dy[i];
-            if (!g[x][y] && this.check_connectivity(g, x, y, tx, ty))
-                return true;
-        }
-        return false;
-    }
-
     create_walls() {
-        const grid = [];
-        for(let r = 0; r < this.rows; ++r) {
-            grid[r] = [];
-            for(let c = 0; c < this.cols; ++c) {
-                grid[r][c] = false;
-            }
-        }
-
-        //创建地图四周加障碍物
-        for(let r = 0; r < this.rows; ++r) {
-            grid[r][0] = grid[r][this.cols - 1] = true;
-        }
-        for(let c = 1; c < this.cols; ++c) {
-            grid[0][c] = grid[this.rows - 1][c] = true;
-        }
-
-        //创建内部随机障碍物
-        for (let i = 0; i < this.inner_walls_count / 2; ++i) {
-            for(let j = 0; j < 1000; ++j) {
-                let r = parseInt(Math.random() * this.rows);
-                let c = parseInt(Math.random() * this.cols);
-                if (grid[r][c] || grid[this.rows - 1 - r][this.cols - 1 - c]) continue;
-                if (r === this.rows - 2 && c === 1 || r === 1 && c === this.cols - 2) continue;  //左右上角出生点强制无障碍物
-                grid[r][c] = [this.rows - 1 - r][this.cols - 1 - c] = true;
-                break;
-            }
-        }
-
-        //检测地图两侧是否连通
-        const copy_grid = JSON.parse(JSON.stringify(grid));
-        if(!this.check_connectivity(copy_grid, this.rows - 2, 1, 1, this.cols - 2)) return false;
+        const grid = this.store.state.pk.gamemap;
 
         //解析障碍物到对象集
         for(let r = 0; r < this.rows; ++r) {
@@ -110,9 +60,7 @@ export class GameMap extends AcGameObject {
     }
 
     start() {
-        for (let i = 0; i < 1000; ++i){
-            if(this.create_walls()) break;
-        }
+        this.create_walls();
         this.add_listening_events();
     }
 
