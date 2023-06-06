@@ -72,9 +72,6 @@ public class WebSocketServer {
         while (matchpool.size() >= 2) {
             Iterator<User> it = matchpool.iterator();
             User a = it.next(), b = it.next();
-            //TODO debug
-            System.out.println(a);
-            System.out.println(b);
             matchpool.remove(a);
             matchpool.remove(b);
 
