@@ -50,9 +50,10 @@ const click_match_btn = () => {
 div.matchground {
   width: 60vw;
   height: 70vh;
+  min-height: calc(50vh + 70px);
   margin: 40px auto;
   background-color: rgba(50, 50, 50, 0.5);
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 div.user-photo {

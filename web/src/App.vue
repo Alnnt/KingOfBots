@@ -18,7 +18,14 @@ export default {
 
 <style>
 body {
-  background: url("@/assets/images/background.png");
+  /* TODO 因未知原因，此二者不可颠倒位置 */
+  background: url("@/assets/images/background.png") fixed center;
   background-size: cover;
+}
+
+@media screen and (max-width: 1280px) {
+  body {
+    background-position-x: calc(50% - 22vh);
+  }
 }
 </style>
