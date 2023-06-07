@@ -25,7 +25,7 @@ body {
 
 @media screen and (max-width: 1280px) {
   body {
-    background-position-x: calc(50% - 22vh);
+    background-position-x: calc(50% - 25vh);
   }
 }
 </style>
