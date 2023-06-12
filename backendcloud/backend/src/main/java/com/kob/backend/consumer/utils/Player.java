@@ -12,6 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Player {
     private Integer id;
+    private Integer botId;  // -1表示亲自出马，否则表示BOT代打
+    private String botCode;
     private Integer sx; // 出生点x坐标
     private Integer sy; // 出生点y坐标
     private List<Integer> steps;

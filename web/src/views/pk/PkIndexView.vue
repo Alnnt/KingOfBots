@@ -13,6 +13,7 @@ import { useStore } from "vuex";
 
 const store = useStore();
 const socketUrl = `ws://localhost:8090/websocket/${store.state.user.token}`;
+store.commit("updateLoser", "none");
 
 let socket = null;
 onMounted(() => {
