@@ -1,6 +1,6 @@
-import {AcGameObject} from "@/assets/scripts/AcGameObject";
+import {GameObject} from "@/assets/scripts/GameObject";
 
-export class Wall extends AcGameObject {
+export class Wall extends GameObject {
     constructor(r, c, gamemap) {
         super();
         this.r = r;

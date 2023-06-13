@@ -1,7 +1,7 @@
-import { AcGameObject } from "@/assets/scripts/AcGameObject";
+import { GameObject } from "@/assets/scripts/GameObject";
 import { Cell } from "@/assets/scripts/Cell";
 
-export class Snake extends AcGameObject {
+export class Snake extends GameObject {
     constructor(info, gamemap) {
         super();
         this.id = info.id;

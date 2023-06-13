@@ -1,6 +1,6 @@
 const AC_GAME_OBJECTS = [];
 
-export class AcGameObject {
+export class GameObject {
     constructor() {
         AC_GAME_OBJECTS.push(this);
         this.timedelta = 0;

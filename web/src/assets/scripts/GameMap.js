@@ -1,8 +1,8 @@
-import { AcGameObject } from "@/assets/scripts/AcGameObject";
+import { GameObject } from "@/assets/scripts/GameObject";
 import { Wall } from "@/assets/scripts/Wall";
 import { Snake } from "@/assets/scripts/Snake";
 
-export class GameMap extends AcGameObject {
+export class GameMap extends GameObject {
     /**
      * 构造GameMap
      * @param ctx     canvas 2d渲染上下文(CanvasRenderingContext2D)
