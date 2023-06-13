@@ -20,7 +20,7 @@ export class GameMap extends AcGameObject {
         this.rows = 13;
         this.cols = 14;        //避免同一时间两条蛇头出现在同一位置
 
-        this.inner_walls_count = 20;
+        // this.inner_walls_count = 20;     已废弃
         this.walls = [];
 
         this.snakes = [
@@ -44,6 +44,29 @@ export class GameMap extends AcGameObject {
     }
 
     add_listening_events() {
+        if (this.store.state.record.is_record) {    // 播放录像模式
+            let k = 0;
+            const a_steps = this.store.state.record.a_steps;
+            const b_steps = this.store.state.record.b_steps;
+            const loser = this.store.state.record.record_loser;
+            const [snake0, snake1] = this.snakes;
+            const interval_id = setInterval(() => {
+                if (k >= a_steps.length - 1) {
+                    console.log(loser);
+                    if (loser === "all" || loser === "A") {
+                        snake0.status = "die";
+                    }
+                    if (loser === "all" || loser === "B") {
+                        snake1.status = "die";
+                    }
+                    clearInterval(interval_id);
+                } else {
+                    snake0.set_direction(parseInt(a_steps[k]));
+                    snake1.set_direction(parseInt(b_steps[k]));
+                }
+                ++k;
+            }, 300);
+        }
         this.ctx.canvas.focus();
 
         this.ctx.canvas.addEventListener("keydown", e => {

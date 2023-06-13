@@ -61,51 +61,51 @@
                 </tr>
               </thead>
               <tbody>
-              <tr v-for="bot in bots" :key="bot.id">
-                <td>{{ bot.title }}</td>
-                <td>{{ bot.createTime }}</td>
-                <td>
-                  <button type="button" class="btn btn-secondary" data-bs-toggle="modal" :data-bs-target="'#update-bot-modal-' + bot.id">修改</button>
-                  <button type="button" class="btn btn-danger" @click="remove_bot(bot)">删除</button>
+                <tr v-for="bot in bots" :key="bot.id">
+                  <td>{{ bot.title }}</td>
+                  <td>{{ bot.createTime }}</td>
+                  <td>
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" :data-bs-target="'#update-bot-modal-' + bot.id">修改</button>
+                    <button type="button" class="btn btn-danger" @click="remove_bot(bot)">删除</button>
 
-                  <!-- Modal 修改Bot -->
-                  <div class="modal fade" :id="'update-bot-modal-' + bot.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="exampleModalLabel">创建Bot</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <div class="mb-3">
-                            <label for="update-bot-title" class="form-label">名称</label>
-                            <input v-model="bot.title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="请输入Bot名称">
+                    <!-- Modal 修改Bot -->
+                    <div class="modal fade" :id="'update-bot-modal-' + bot.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">创建Bot</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="mb-3">
-                            <label for="update-bot-description" class="form-label">简介</label>
-                            <textarea v-model="bot.description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="请输入Bot简介"></textarea>
+                          <div class="modal-body">
+                            <div class="mb-3">
+                              <label for="update-bot-title" class="form-label">名称</label>
+                              <input v-model="bot.title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="请输入Bot名称">
+                            </div>
+                            <div class="mb-3">
+                              <label for="update-bot-description" class="form-label">简介</label>
+                              <textarea v-model="bot.description" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="请输入Bot简介"></textarea>
+                            </div>
+                            <div class="mb-3">
+                              <label for="update-bot-code" class="form-label">代码</label>
+                              <VAceEditor
+                                  v-model:value="bot.content"
+                                  lang="c_cpp"
+                                  theme="textmate"
+                                  style="height: 300px"
+                                  :options="aceEditorOption"
+                              />
+                            </div>
                           </div>
-                          <div class="mb-3">
-                            <label for="update-bot-code" class="form-label">代码</label>
-                            <VAceEditor
-                                v-model:value="bot.content"
-                                lang="c_cpp"
-                                theme="textmate"
-                                style="height: 300px"
-                                :options="aceEditorOption"
-                            />
+                          <div class="modal-footer">
+                            <div class="error-message">{{ bot.error_message }}</div>
+                            <button type="button" class="btn btn-primary" @click="update_bot(bot)">修改</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
                           </div>
-                        </div>
-                        <div class="modal-footer">
-                          <div class="error-message">{{ bot.error_message }}</div>
-                          <button type="button" class="btn btn-primary" @click="update_bot(bot)">修改</button>
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </td>
-              </tr>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
