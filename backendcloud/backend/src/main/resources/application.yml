@@ -5,5 +5,5 @@ spring:
   datasource:
     username: kob
     password: 2dap33akGw6ykNkb
-    url: jdbc:mysql://82.157.255.242:3306/kob?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://kob.wm-valley.com:3306/kob?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
     driver-class-name: com.mysql.cj.jdbc.Driver

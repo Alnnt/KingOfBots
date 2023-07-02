@@ -73,7 +73,7 @@ const update_pages = () => {
 const pull_page = page => {
   current_page = page;
   $.ajax({
-    url: "http://localhost:8090/ranklist/getlist",
+    url: "http://kob.wm-valley.com:8090/api/ranklist/getlist",
     type: "get",
     headers: {
       Authorization: "Bearer " + store.state.user.token

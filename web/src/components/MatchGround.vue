@@ -60,7 +60,7 @@ const click_match_btn = () => {
 
 const refresh_bots = () => {
   $.ajax({
-    url: "http://localhost:8090/user/bot/getlist",
+    url: "http://kob.wm-valley.com:8090/api/user/bot/getlist",
     type: "get",
     headers: {
       Authorization: "Bearer " + store.state.user.token

@@ -35,7 +35,7 @@ export default {
     actions: {
         login(context, data) {
             $.ajax({
-                url: "http://localhost:8090/user/account/token",
+                url: "http://kob.wm-valley.com:8090/api/user/account/token",
                 type: "post",
                 data: {
                     username: data.username,
@@ -57,7 +57,7 @@ export default {
         },
         getInfo(context, data) {
             $.ajax({
-                url: "http://localhost:8090/user/account/info",
+                url: "http://kob.wm-valley.com:8090/api/user/account/info",
                 type: "get",
                 headers: {
                     Authorization: "Bearer " + context.state.token

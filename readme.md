@@ -1,7 +1,7 @@
 # King Of Bots
 
 
-大一下大作业 Vue 3 + SpringBoot 2.7 完整的高完成度的上线项目
+大一下大作业 Vue 3 + SpringBoot 2.7 完整的较高完成度的上线项目
 
 
 

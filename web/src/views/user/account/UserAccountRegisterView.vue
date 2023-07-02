@@ -42,7 +42,7 @@ export default {
 
     const register = () => {
       $.ajax({
-        url: "http://localhost:8090/user/account/register",
+        url: "http://kob.wm-valley.com:8090/api/user/account/register",
         type: "post",
         data: {
           username: username.value,

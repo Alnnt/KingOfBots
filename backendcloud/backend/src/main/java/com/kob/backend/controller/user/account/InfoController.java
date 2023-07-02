@@ -9,12 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user/account")
 public class InfoController {
     @Autowired
     private InfoService infoService;
 
-    @GetMapping("/info")
+    @GetMapping("/api/user/account/info")
     public Map<String, String> getInfo() {
         return infoService.getInfo();
     }

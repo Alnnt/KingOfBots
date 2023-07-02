@@ -2,6 +2,8 @@
   <PlayGround v-if="$store.state.pk.status === 'playing'"/>
   <MatchGround v-if="$store.state.pk.status === 'matching'"/>
   <ResultBoard v-if="$store.state.pk.loser !== 'none'"/>
+  <div class="user-color" v-if="$store.state.pk.status === 'playing' && parseInt($store.state.user.id) === parseInt($store.state.pk.a_id)">左下角</div>
+  <div class="user-color" v-if="$store.state.pk.status === 'playing' && parseInt($store.state.user.id) === parseInt($store.state.pk.b_id)">右上角</div>
 </template>
 
 <script setup>
@@ -12,7 +14,7 @@ import { onMounted, onUnmounted } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
-const socketUrl = `ws://localhost:8090/websocket/${store.state.user.token}`;
+const socketUrl = `ws://kob.wm-valley.com:8090/websocket/${store.state.user.token}`;
 
 store.commit("updateLoser", "none");
 store.commit("updateIsRecord", false);
@@ -74,5 +76,10 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-
+div.user-color {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+}
 </style>

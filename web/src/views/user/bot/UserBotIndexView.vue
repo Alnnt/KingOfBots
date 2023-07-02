@@ -157,7 +157,7 @@ const store = useStore();
 let bots = ref([]);
 const refresh_bots = () => {
   $.ajax({
-    url: "http://localhost:8090/user/bot/getlist",
+    url: "http://kob.wm-valley.com:8090/api/user/bot/getlist",
     type: "get",
     headers: {
       Authorization: "Bearer " + store.state.user.token
@@ -177,7 +177,7 @@ refresh_bots();
 const add_bot = () => {
   botadd.error_message = '';
   $.ajax({
-    url: "http://localhost:8090/user/bot/add",
+    url: "http://kob.wm-valley.com:8090/api/user/bot/add",
     type: "post",
     data: {
       title: botadd.title,
@@ -204,7 +204,7 @@ const add_bot = () => {
 const update_bot = (bot) => {
   botadd.error_message = '';
   $.ajax({
-    url: "http://localhost:8090/user/bot/update",
+    url: "http://kob.wm-valley.com:8090/api/user/bot/update",
     type: "post",
     data: {
       bot_id: bot.id,
@@ -228,7 +228,7 @@ const update_bot = (bot) => {
 
 const remove_bot = (bot) => {
   $.ajax({
-    url: "http://localhost:8090/user/bot/remove",
+    url: "http://kob.wm-valley.com:8090/api/user/bot/remove",
     type: "post",
     data: {
       bot_id: bot.id
