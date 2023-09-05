@@ -1,7 +1,7 @@
 # King Of Bots
 
 
-大一下大作业 Vue 3 + SpringBoot 2.7 完整的较高完成度的上线项目
+ Vue 3 + SpringBoot 2.7 完整的较高完成度的上线项目
 
 
 
@@ -13,7 +13,7 @@
 
 后端：Springboot、MyBatis-plus、SpringSecurity、SpringCloud、MySql、WebSocekt、多线程与锁、restTemplate线程注入、微服务pom依赖管理、MySql数据库设计
 
-运维：Linux、git、**docker、宝塔
+运维：Linux、git、docker、宝塔
 
 客户端：windows平台封装web ui
 
@@ -60,6 +60,12 @@ AI代码运行服务，目前为demo版本，仅运行支持java代码（通过�
 ### 业务流程：
 
 ![业务流程](process.png)
+
+
+
+
+
+
 
 ### 数据库结构：
 
